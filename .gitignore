@@ -11,7 +11,6 @@ dashboard/node_modules/
 dashboard/.next/
 dashboard/dev.log
 dashboard/server.log
-*.log
 dashboard/.env*
 !dashboard/.env.example
 dashboard/db/
