@@ -1,0 +1,23 @@
+# Design reference for the optional neural model. It is intentionally not called
+# "best_model": that label must be earned through backtesting on real data.
+experiment_name: "experimental_lstm_time2vec"
+
+data:
+  sequence_length: 168
+  forecast_horizon: 24
+  scaler: "standard_per_fold"
+
+model:
+  type: "lstm_time2vec"
+  time_embedding_dim: 6
+  lstm_units: 64
+  dropout: 0.2
+  learning_rate: 0.001
+  batch_size: 32
+  epochs: 100
+  patience: 10
+
+evaluation:
+  n_splits: 3
+  test_size: 168
+  gap: 24

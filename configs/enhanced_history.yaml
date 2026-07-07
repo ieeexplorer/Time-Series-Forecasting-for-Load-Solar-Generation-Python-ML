@@ -1,0 +1,30 @@
+experiment_name: "tabular_day_ahead_enhanced_history"
+
+data:
+  source: "synthetic"
+  synthetic_years: 2
+  seed: 42
+  forecast_horizon: 24
+  extended_history_features: true
+
+models:
+  - type: "linear_regression"
+  - type: "ridge_regression"
+    parameters:
+      alpha: 1.0
+  - type: "random_forest"
+    parameters:
+      n_estimators: 150
+      min_samples_leaf: 2
+      max_features: 0.8
+      random_state: 42
+      n_jobs: 1
+
+evaluation:
+  n_splits: 3
+  test_size: 168
+  gap: 24
+  max_train_size: 8760
+  final_test_size: 720
+
+output_dir: "outputs/enhanced_history"
